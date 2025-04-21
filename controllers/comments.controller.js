@@ -76,8 +76,9 @@ const putEditComment = async (req, res) => {
       email,
       body,
     });
-    const comment = response.data;
-    res.render(createViewPage("comment"), { title: "Comment", comment });
+    const comments = response.data;
+    console.log(comments);
+    res.render(createViewPage("comments"), { title: "Comment", comments: [comments] });
   } catch (error) {
     console.log(error);
     res.send({ message: "Kommentni yangilashda xatolik" });

@@ -15,6 +15,7 @@ const app = express(); // ** server yaratish
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 app.use(morgan("short"));
+app.use(express.urlencoded({extended: true}))
 
 app.use(express.static("styles"));
 app.use(express.static("images"));

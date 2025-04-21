@@ -13,7 +13,7 @@
         <p><%= comment.body %></p>
         <p><small><%= comment.email %></small></p>
 
-        <a href="/edit-comment/<%= comment.id %>">Edit</a>
+        <a href="/api/edit-comment/<%= comment.id %>">Edit</a>
         <form
           action="/comments/<%= comment.id %>?_method=DELETE"
           method="POST"
