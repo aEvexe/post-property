@@ -6,6 +6,6 @@
     <li <% if (title=="Groups") { %> class="active" <% } %>><a href="/groups">Groups</a></li>
     <li <% if (title=="About") { %> class="active" <% } %>><a href="/about">About</a></li>
     <li class="<%= title === 'Posts' ? 'active' : '' %>"><a href="/posts">Posts</a></li>
-
+    <li <% if (title=="Comments") { %> class="active" <% } %>><a href="/comments">Comments</a></li>
   </ul>
 </nav>

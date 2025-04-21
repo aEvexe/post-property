@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("./partials/head.ejs") %>
-
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
   <body>
     <%- include("./partials/nav.ejs") %>
-    <h3>Groups Page</h3>
+
+    <main>
+      <h1>Comments</h1>
+      <% if (comments && comments.length > 0) { %>
+        <ul>
+          <% comments.forEach(comment => { %>
+            <li>
+              <strong><%= comment.name %></strong> - <%= comment.email %><br />
+              <p><%= comment.body %></p>
+              <a href="/comments/<%= comment.id %>">View</a> |
+              <a href="/comments/edit/<%= comment.id %>">Edit</a> |
+              <form action="/comments/<%= comment.id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+              </form>
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <p>No comments available.</p>
+      <% } %>
+    </main>
   </body>
 </html>
+

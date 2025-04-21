@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <%- include("./partials/nav.ejs") %>
+    <h1>Comments</h1>
+    <a href="/add-comment">Add New Comment</a>
+    <ul>
+      <% comments.forEach(comment => { %>
+      <li>
+        <h3><%= comment.name %></h3>
+        <p><%= comment.body %></p>
+        <p><small><%= comment.email %></small></p>
+
+        <a href="/edit-comment/<%= comment.id %>">Edit</a>
+        <form
+          action="/comments/<%= comment.id %>?_method=DELETE"
+          method="POST"
+          onsubmit="return confirm('Are you sure you want to delete this comment?')"
+        >
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { createViewPage } = require("../helpers/create.views.page.js");
 
-// GET all posts
+
 const getPosts = async (req, res) => {
   try {
     const { data: posts } = await axios.get("https://jsonplaceholder.typicode.com/posts");
@@ -12,7 +12,6 @@ const getPosts = async (req, res) => {
   }
 };
 
-// GET single post by ID
 const getPostById = async (req, res) => {
   try {
     const { postId } = req.params;
@@ -24,7 +23,7 @@ const getPostById = async (req, res) => {
   }
 };
 
-// GET form for adding a post
+
 const getAddPost = (req, res) => {
   try {
     res.render(createViewPage("add-post"), { title: "Add Post" });
@@ -34,7 +33,7 @@ const getAddPost = (req, res) => {
   }
 };
 
-// POST a new post
+
 const postAddPost = async (req, res) => {
   try {
     const { title, body, userId } = req.body;
@@ -50,7 +49,7 @@ const postAddPost = async (req, res) => {
   }
 };
 
-// DELETE a post by ID
+
 const deletePostById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -62,7 +61,7 @@ const deletePostById = async (req, res) => {
   }
 };
 
-// GET form to edit post
+
 const getEditPostById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -74,7 +73,7 @@ const getEditPostById = async (req, res) => {
   }
 };
 
-// PUT/PATCH edit post
+
 const putEditPost = async (req, res) => {
   try {
     const { id } = req.params;

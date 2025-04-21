@@ -16,7 +16,8 @@ router.post("/add-post", postAddPost);
 router.get("/:postId", getPostById);
 router.get("/edit-post/:id", getEditPostById);
 router.post("/edit-post/:id", putEditPost);
-router.delete("/:id", deletePostById);
+router.delete("/post/:id", deletePostById);
+
 
 module.exports = router;
 
